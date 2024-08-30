@@ -139,6 +139,6 @@ Run the Application
 ```
 
 
-## Developer
+## Developer of the project
 
 This project is built by [J.Gaurav Varma](https://github.com/GauravOOO2).
