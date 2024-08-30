@@ -2,29 +2,15 @@
     "version": 2,
     "builds": [
       {
-        "src": "frontend/package.json",
-        "use": "@vercel/next"
-      },
-      {
-        "src": "backend/package.json",
+        "src": "./index.js",
         "use": "@vercel/node"
       }
     ],
     "routes": [
       {
-        "src": "/api/(.*)",
-        "dest": "/backend/api/$1"
-      },
-      {
         "src": "/(.*)",
-        "dest": "/frontend/$1"
+        "dest": "/"
       }
     ],
-    "env": {
-      "NEXT_PUBLIC_LOGIN_URL": "https://your-deployed-url.com/api/login",
-      "NEXT_PUBLIC_SIGNUP_URL": "https://your-deployed-url.com/api/signup",
-      "NEXT_PUBLIC_API_URL": "https://your-deployed-url.com/api",
-      "NEXT_PUBLIC_RESUME_BASE_URL": "https://your-deployed-url.com/uploads/resumes/"
-    }
+    "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }]
   }
-  

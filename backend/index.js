@@ -1,3 +1,5 @@
+
+
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
@@ -11,7 +13,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors(
 
-    
+
 ));
 
 // Connect to the database
