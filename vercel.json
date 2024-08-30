@@ -9,6 +9,12 @@
         "src": "backend/package.json",
         "use": "@vercel/node"
       }
-    ]
+    ],
+    "env": {
+      "NEXT_PUBLIC_LOGIN_URL": "https://your-deployed-url.com/api/login",
+      "NEXT_PUBLIC_SIGNUP_URL": "https://your-deployed-url.com/api/signup",
+      "NEXT_PUBLIC_API_URL": "https://your-deployed-url.com/api",
+      "NEXT_PUBLIC_RESUME_BASE_URL": "https://your-deployed-url.com/uploads/resumes/"
+    }
   }
   
