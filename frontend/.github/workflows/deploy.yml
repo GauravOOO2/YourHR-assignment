@@ -1,0 +1,54 @@
+# name: Deploy Next.js App
+
+# on:
+#   push:
+#     branches:
+#       - dev  
+
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - name: Checkout code
+#       uses: actions/checkout@v2
+
+#     - name: Set up SSH key
+#       run: |
+#         mkdir -p ~/.ssh
+#         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+#         chmod 600 ~/.ssh/id_rsa
+#         ssh-keyscan -t rsa ec2-13-51-206-202.eu-north-1.compute.amazonaws.com >> ~/.ssh/known_hosts
+#         chmod 644 ~/.ssh/known_hosts
+
+#     - name: SSH and deploy
+#       run: |
+#         ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@ec2-13-51-206-202.eu-north-1.compute.amazonaws.com "bash ~/deploy.sh"
+
+name: Deploy Next.js App
+
+on:
+  push:
+    branches:
+      - dev  # Update with your branch name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up SSH key
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -t rsa ec2-13-60-87-219.eu-north-1.compute.amazonaws.com >> ~/.ssh/known_hosts
+        chmod 644 ~/.ssh/known_hosts
+
+    - name: SSH and deploy
+      run: |
+        ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@ec2-13-60-87-219.eu-north-1.compute.amazonaws.com "bash ~/deploy.sh"
+        
