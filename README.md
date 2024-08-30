@@ -140,6 +140,6 @@ Run the Application
 ```
 
 
-## Built by
+## Developer
 
 This project is built by [J.Gaurav Varma](https://github.com/GauravOOO2).
